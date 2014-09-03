@@ -17,4 +17,7 @@ var app = new EmberApp();
 // please specify an object with the list of modules as keys
 // along with the exports of each module as its value.
 
+//Ember Animate
+app.import('vendor/ember-animate/ember-animate.js');
+
 module.exports = app.toTree();
