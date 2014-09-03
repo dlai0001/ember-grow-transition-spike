@@ -21,12 +21,19 @@ export default Ember.View.extend({
   animateOut : function (done) {
     console.log("animateout called");
 //    this.$().fadeTo(500, 0, done);
-      var growElement = this.get('controller').get('elementToGrow');
-      growElement.css("position", "fixed");
-      console.log("growing element", growElement);
-      growElement.animate({
-        height: "100%",
-        width: "100%"
-      }, 1000, done);
+    var growElement = this.get('controller').get('elementToGrow');
+    var offset = growElement.offset();
+    console.log("offset is", offset.top, offset.left);
+    growElement.css("position", "fixed");
+    growElement.css("top", offset.top);
+    growElement.css("left", offset.left);
+
+    console.log("growing element", growElement);
+    growElement.animate({
+      height:"100%",
+      width: "100%",
+      top: "0em",
+      left: "0em"
+    }, 1000, done);
   }
 });
